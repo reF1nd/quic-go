@@ -3,6 +3,7 @@ package quic
 import (
 	"context"
 	"errors"
+	"github.com/quic-go/quic-go/congestion"
 	"io"
 	"net"
 	"time"
@@ -183,6 +184,9 @@ type Connection interface {
 	SendMessage([]byte) error
 	// ReceiveMessage gets a message received in a datagram, as specified in RFC 9221.
 	ReceiveMessage() ([]byte, error)
+
+	// Replace the current congestion control algorithm with a new one.
+	SetCongestionControl(congestion.CongestionControl)
 }
 
 // An EarlyConnection is a connection that is handshaking.
