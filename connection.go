@@ -922,6 +922,11 @@ func (s *connection) handlePacketImpl(rp *receivedPacket) bool {
 		}
 	}
 
+	if s.perspective == protocol.PerspectiveServer && processed {
+		// Connection migration
+		s.conn.SetRemoteAddr(rp.remoteAddr)
+	}
+
 	p.buffer.MaybeRelease()
 	return processed
 }
