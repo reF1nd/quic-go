@@ -3,10 +3,10 @@ package ackhandler
 import (
 	"time"
 
-	"github.com/lucas-clemente/quic-go/congestion"
+	"github.com/sagernet/quic-go/congestion"
 
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/wire"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/wire"
 )
 
 // SentPacketHandler handles ACKs received for outgoing packets

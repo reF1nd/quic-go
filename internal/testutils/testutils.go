@@ -3,9 +3,9 @@ package testutils
 import (
 	"bytes"
 
-	"github.com/lucas-clemente/quic-go/internal/handshake"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/wire"
+	"github.com/sagernet/quic-go/internal/handshake"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/wire"
 )
 
 // Utilities for simulating packet injection and man-in-the-middle (MITM) attacker tests.
@@ -72,8 +72,8 @@ func ComposeInitialPacket(srcConnID protocol.ConnectionID, destConnID protocol.C
 	pnOffset := payloadOffset - int(pnLength) // packet number offset
 	sealer.EncryptHeader(
 		encrypted[payloadOffset:payloadOffset+16], // first 16 bytes of payload (sample)
-		&encrypted[0],                     // first byte of header
-		encrypted[pnOffset:payloadOffset], // packet number bytes
+		&encrypted[0],                             // first byte of header
+		encrypted[pnOffset:payloadOffset],         // packet number bytes
 	)
 	return encrypted
 }

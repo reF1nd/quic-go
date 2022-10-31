@@ -15,10 +15,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/utils"
-	"github.com/lucas-clemente/quic-go/internal/wire"
-	"github.com/lucas-clemente/quic-go/logging"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/utils"
+	"github.com/sagernet/quic-go/internal/wire"
+	"github.com/sagernet/quic-go/logging"
 )
 
 // rawConn is a connection that allow reading of a receivedPacket.
@@ -123,7 +123,7 @@ func newPacketHandlerMap(
 				if disable, _ := strconv.ParseBool(os.Getenv("QUIC_GO_DISABLE_RECEIVE_BUFFER_WARNING")); disable {
 					return
 				}
-				// log.Printf("%s. See https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size for details.", err)
+				// log.Printf("%s. See https://github.com/sagernet/quic-go/wiki/UDP-Receive-Buffer-Size for details.", err)
 			})
 		}
 	}
@@ -371,7 +371,7 @@ func (h *packetHandlerMap) listen() {
 		//nolint:staticcheck // SA1019 ignore this!
 		// TODO: This code is used to ignore wsa errors on Windows.
 		// Since net.Error.Temporary is deprecated as of Go 1.18, we should find a better solution.
-		// See https://github.com/lucas-clemente/quic-go/issues/1737 for details.
+		// See https://github.com/sagernet/quic-go/issues/1737 for details.
 		if nerr, ok := err.(net.Error); ok && nerr.Temporary() {
 			h.logger.Debugf("Temporary error reading from conn: %w", err)
 			continue

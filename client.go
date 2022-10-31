@@ -8,9 +8,9 @@ import (
 	"net"
 	"strings"
 
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/utils"
-	"github.com/lucas-clemente/quic-go/logging"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/utils"
+	"github.com/sagernet/quic-go/logging"
 )
 
 type client struct {

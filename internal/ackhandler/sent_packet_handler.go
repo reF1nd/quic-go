@@ -6,14 +6,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/lucas-clemente/quic-go/internal/congestion"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/qerr"
-	"github.com/lucas-clemente/quic-go/internal/utils"
-	"github.com/lucas-clemente/quic-go/internal/wire"
-	"github.com/lucas-clemente/quic-go/logging"
+	"github.com/sagernet/quic-go/internal/congestion"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/qerr"
+	"github.com/sagernet/quic-go/internal/utils"
+	"github.com/sagernet/quic-go/internal/wire"
+	"github.com/sagernet/quic-go/logging"
 
-	congestionExt "github.com/lucas-clemente/quic-go/congestion"
+	congestionExt "github.com/sagernet/quic-go/congestion"
 )
 
 const (

@@ -13,11 +13,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/lucas-clemente/quic-go"
-	"github.com/lucas-clemente/quic-go/internal/handshake"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/utils"
-	"github.com/lucas-clemente/quic-go/quicvarint"
+	"github.com/sagernet/quic-go"
+	"github.com/sagernet/quic-go/internal/handshake"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/utils"
+	"github.com/sagernet/quic-go/quicvarint"
 	"github.com/marten-seemann/qpack"
 )
 

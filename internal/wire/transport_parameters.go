@@ -11,10 +11,10 @@ import (
 	"sort"
 	"time"
 
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/qerr"
-	"github.com/lucas-clemente/quic-go/internal/utils"
-	"github.com/lucas-clemente/quic-go/quicvarint"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/qerr"
+	"github.com/sagernet/quic-go/internal/utils"
+	"github.com/sagernet/quic-go/quicvarint"
 )
 
 const transportParameterMarshalingVersion = 1

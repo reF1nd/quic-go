@@ -6,7 +6,7 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
-	"github.com/lucas-clemente/quic-go/congestion"
+	"github.com/sagernet/quic-go/congestion"
 	"io"
 	"net"
 	"reflect"
@@ -14,15 +14,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/lucas-clemente/quic-go/internal/ackhandler"
-	"github.com/lucas-clemente/quic-go/internal/flowcontrol"
-	"github.com/lucas-clemente/quic-go/internal/handshake"
-	"github.com/lucas-clemente/quic-go/internal/logutils"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/qerr"
-	"github.com/lucas-clemente/quic-go/internal/utils"
-	"github.com/lucas-clemente/quic-go/internal/wire"
-	"github.com/lucas-clemente/quic-go/logging"
+	"github.com/sagernet/quic-go/internal/ackhandler"
+	"github.com/sagernet/quic-go/internal/flowcontrol"
+	"github.com/sagernet/quic-go/internal/handshake"
+	"github.com/sagernet/quic-go/internal/logutils"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/qerr"
+	"github.com/sagernet/quic-go/internal/utils"
+	"github.com/sagernet/quic-go/internal/wire"
+	"github.com/sagernet/quic-go/logging"
 )
 
 type unpacker interface {
