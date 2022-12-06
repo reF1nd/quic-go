@@ -7,8 +7,6 @@ import (
 	"syscall"
 
 	"golang.org/x/sys/windows"
-
-	"github.com/quic-go/quic-go/internal/utils"
 )
 
 const (
@@ -20,23 +18,10 @@ const (
 )
 
 func setDF(rawConn syscall.RawConn) error {
-	var errDFIPv4, errDFIPv6 error
-	if err := rawConn.Control(func(fd uintptr) {
-		errDFIPv4 = windows.SetsockoptInt(windows.Handle(fd), windows.IPPROTO_IP, IP_DONTFRAGMENT, 1)
-		errDFIPv6 = windows.SetsockoptInt(windows.Handle(fd), windows.IPPROTO_IPV6, IPV6_DONTFRAG, 1)
-	}); err != nil {
-		return err
-	}
-	switch {
-	case errDFIPv4 == nil && errDFIPv6 == nil:
-		utils.DefaultLogger.Debugf("Setting DF for IPv4 and IPv6.")
-	case errDFIPv4 == nil && errDFIPv6 != nil:
-		utils.DefaultLogger.Debugf("Setting DF for IPv4.")
-	case errDFIPv4 != nil && errDFIPv6 == nil:
-		utils.DefaultLogger.Debugf("Setting DF for IPv6.")
-	case errDFIPv4 != nil && errDFIPv6 != nil:
-		return errors.New("Setting DF failed for both IPv4 and IPv6")
-	}
+	rawConn.Control(func(fd uintptr) {
+		_ = windows.SetsockoptInt(windows.Handle(fd), windows.IPPROTO_IP, IP_DONTFRAGMENT, 1)
+		_ = windows.SetsockoptInt(windows.Handle(fd), windows.IPPROTO_IPV6, IPV6_DONTFRAG, 1)
+	})
 	return nil
 }
 
