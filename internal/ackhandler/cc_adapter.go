@@ -1,8 +1,8 @@
 package ackhandler
 
 import (
-	"github.com/quic-go/quic-go/congestion"
-	"github.com/quic-go/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/congestion"
+	"github.com/sagernet/quic-go/internal/protocol"
 	"time"
 )
 

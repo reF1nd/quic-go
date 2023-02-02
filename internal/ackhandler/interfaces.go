@@ -1,11 +1,11 @@
 package ackhandler
 
 import (
-	"github.com/quic-go/quic-go/congestion"
+	"github.com/sagernet/quic-go/congestion"
 	"time"
 
-	"github.com/quic-go/quic-go/internal/protocol"
-	"github.com/quic-go/quic-go/internal/wire"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/wire"
 )
 
 // SentPacketHandler handles ACKs received for outgoing packets

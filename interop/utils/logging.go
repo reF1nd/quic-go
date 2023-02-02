@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/quic-go/quic-go/internal/utils"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/sagernet/quic-go/internal/utils"
+	"github.com/sagernet/quic-go/logging"
 )
 
 // GetSSLKeyLog creates a file for the TLS key log
