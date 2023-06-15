@@ -10,9 +10,9 @@ import (
 	"net/http"
 	"strings"
 	"sync"
-	"sync/atomic"
 
 	"github.com/quic-go/quic-go"
+	"github.com/sagernet/sing/common/atomic"
 	"golang.org/x/net/http/httpguts"
 )
 
