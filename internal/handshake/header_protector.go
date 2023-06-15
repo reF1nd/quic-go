@@ -7,10 +7,9 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"golang.org/x/crypto/chacha20"
-
 	"github.com/quic-go/quic-go/internal/protocol"
 	"github.com/quic-go/quic-go/internal/qtls"
+	"golang.org/x/crypto/chacha20"
 )
 
 type headerProtector interface {
