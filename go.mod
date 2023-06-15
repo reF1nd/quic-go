@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/francoispqt/gojay v1.2.13
 	github.com/quic-go/qpack v0.4.0
+	github.com/quic-go/qtls-go1-18 v0.2.0
 	github.com/quic-go/qtls-go1-19 v0.3.2
 	github.com/quic-go/qtls-go1-20 v0.2.2
 	golang.org/x/crypto v0.10.0
