@@ -10,9 +10,8 @@ import (
 	"syscall"
 	"unsafe"
 
-	"golang.org/x/sys/unix"
-
 	"github.com/quic-go/quic-go/internal/utils"
+	"golang.org/x/sys/unix"
 )
 
 // UDP_SEGMENT controls GSO (Generic Segmentation Offload)
