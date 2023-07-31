@@ -4,8 +4,8 @@ import (
 	"crypto"
 	"crypto/tls"
 
-	"github.com/quic-go/quic-go/internal/protocol"
-	"github.com/quic-go/quic-go/internal/qtls"
+	"github.com/sagernet/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go/internal/qtls"
 	"golang.org/x/crypto/hkdf"
 )
 
