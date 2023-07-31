@@ -10,7 +10,6 @@ import (
 	"net/http"
 	"strconv"
 	"sync"
-	"sync/atomic"
 	"time"
 
 	"github.com/quic-go/qpack"
@@ -19,6 +18,7 @@ import (
 	"github.com/quic-go/quic-go/internal/qtls"
 	"github.com/quic-go/quic-go/internal/utils"
 	"github.com/quic-go/quic-go/quicvarint"
+	"github.com/sagernet/sing/common/atomic"
 )
 
 // MethodGet0RTT allows a GET request to be sent using 0-RTT.
