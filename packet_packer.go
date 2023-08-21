@@ -124,6 +124,8 @@ type packetPacker struct {
 	retransmissionQueue *retransmissionQueue
 
 	numNonAckElicitingAcks int
+
+	maxDatagramFrameSize protocol.ByteCount
 }
 
 var _ packer = &packetPacker{}
@@ -139,19 +141,21 @@ func newPacketPacker(
 	acks ackFrameSource,
 	datagramQueue *datagramQueue,
 	perspective protocol.Perspective,
+	maxDatagramFrameSize protocol.ByteCount,
 ) *packetPacker {
 	return &packetPacker{
-		cryptoSetup:         cryptoSetup,
-		getDestConnID:       getDestConnID,
-		srcConnID:           srcConnID,
-		initialStream:       initialStream,
-		handshakeStream:     handshakeStream,
-		retransmissionQueue: retransmissionQueue,
-		datagramQueue:       datagramQueue,
-		perspective:         perspective,
-		framer:              framer,
-		acks:                acks,
-		pnManager:           packetNumberManager,
+		cryptoSetup:          cryptoSetup,
+		getDestConnID:        getDestConnID,
+		srcConnID:            srcConnID,
+		initialStream:        initialStream,
+		handshakeStream:      handshakeStream,
+		retransmissionQueue:  retransmissionQueue,
+		datagramQueue:        datagramQueue,
+		perspective:          perspective,
+		framer:               framer,
+		acks:                 acks,
+		pnManager:            packetNumberManager,
+		maxDatagramFrameSize: maxDatagramFrameSize,
 	}
 }
 
@@ -598,8 +602,16 @@ func (p *packetPacker) composeNextPacket(maxFrameSize protocol.ByteCount, onlyAc
 		if f := p.datagramQueue.Peek(); f != nil {
 			size := f.Length(v)
 			if size <= maxFrameSize-pl.length {
+				p.datagramQueue.dequeued <- nil
 				pl.frames = append(pl.frames, ackhandler.Frame{Frame: f})
 				pl.length += size
+				p.datagramQueue.Pop()
+			} else {
+				if maxFrameSize < p.maxDatagramFrameSize {
+					p.datagramQueue.dequeued <- ErrMessageTooLarge(maxFrameSize - pl.length - 3)
+				} else {
+					p.datagramQueue.dequeued <- ErrMessageTooLarge(p.maxDatagramFrameSize - pl.length - 3)
+				}
 				p.datagramQueue.Pop()
 			}
 		}
