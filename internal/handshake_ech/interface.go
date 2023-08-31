@@ -1,13 +1,13 @@
 package handshake
 
 import (
-	"crypto/tls"
 	"errors"
 	"io"
 	"time"
 
 	"github.com/quic-go/quic-go/internal/protocol"
 	"github.com/quic-go/quic-go/internal/wire"
+	"github.com/sagernet/cloudflare-tls"
 )
 
 var (
