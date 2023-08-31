@@ -3,7 +3,6 @@ package quic
 import (
 	"context"
 	"crypto/rand"
-	"crypto/tls"
 	"errors"
 	"net"
 	"sync"
@@ -14,6 +13,7 @@ import (
 	"github.com/quic-go/quic-go/internal/utils"
 	"github.com/quic-go/quic-go/internal/wire"
 	"github.com/quic-go/quic-go/logging"
+	"github.com/sagernet/cloudflare-tls"
 )
 
 var errListenerAlreadySet = errors.New("listener already set")
