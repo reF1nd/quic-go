@@ -65,7 +65,7 @@ type cryptoStreamHandler interface {
 }
 
 type receivedPacket struct {
-	buffer *packetBuffer
+	buffer *PacketBuffer
 
 	remoteAddr net.Addr
 	rcvTime    time.Time
@@ -457,7 +457,7 @@ var newClientConnection = func(
 	}
 	if s.config.TokenStore != nil {
 		if token := s.config.TokenStore.Pop(s.tokenStoreKey); token != nil {
-			s.packer.SetToken(token.data)
+			s.packer.SetToken(token.Data)
 		}
 	}
 	return s
@@ -1503,7 +1503,7 @@ func (s *connection) handleNewTokenFrame(frame *wire.NewTokenFrame) error {
 		}
 	}
 	if s.config.TokenStore != nil {
-		s.config.TokenStore.Put(s.tokenStoreKey, &ClientToken{data: frame.Token})
+		s.config.TokenStore.Put(s.tokenStoreKey, &ClientToken{Data: frame.Token})
 	}
 	return nil
 }
@@ -1915,7 +1915,7 @@ func (s *connection) sendPackets(now time.Time) error {
 
 func (s *connection) sendPacketsWithoutGSO(now time.Time) error {
 	for {
-		buf := getPacketBuffer()
+		buf := GetPacketBuffer()
 		ecn := s.sentPacketHandler.ECNMode(true)
 		if _, err := s.appendOneShortHeaderPacket(buf, s.maxPacketSize(), ecn, now); err != nil {
 			if err == errNothingToPack {
@@ -1947,7 +1947,7 @@ func (s *connection) sendPacketsWithoutGSO(now time.Time) error {
 }
 
 func (s *connection) sendPacketsWithGSO(now time.Time) error {
-	buf := getLargePacketBuffer()
+	buf := GetLargePacketBuffer()
 	maxSize := s.maxPacketSize()
 
 	ecn := s.sentPacketHandler.ECNMode(true)
@@ -2002,7 +2002,7 @@ func (s *connection) sendPacketsWithGSO(now time.Time) error {
 			return nil
 		}
 
-		buf = getLargePacketBuffer()
+		buf = GetLargePacketBuffer()
 	}
 }
 
@@ -2074,7 +2074,7 @@ func (s *connection) sendProbePacket(encLevel protocol.EncryptionLevel, now time
 
 // appendOneShortHeaderPacket appends a new packet to the given packetBuffer.
 // If there was nothing to pack, the returned size is 0.
-func (s *connection) appendOneShortHeaderPacket(buf *packetBuffer, maxSize protocol.ByteCount, ecn protocol.ECN, now time.Time) (protocol.ByteCount, error) {
+func (s *connection) appendOneShortHeaderPacket(buf *PacketBuffer, maxSize protocol.ByteCount, ecn protocol.ECN, now time.Time) (protocol.ByteCount, error) {
 	startLen := buf.Len()
 	p, err := s.packer.AppendPacket(buf, maxSize, s.version)
 	if err != nil {
