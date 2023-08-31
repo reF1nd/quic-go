@@ -3,8 +3,9 @@
 package qtls
 
 import (
-	"crypto/tls"
 	"sync"
+
+	"github.com/sagernet/cloudflare-tls"
 )
 
 type clientSessionCache struct {
