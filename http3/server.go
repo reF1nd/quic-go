@@ -5,7 +5,6 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
-	"golang.org/x/exp/slog"
 	"io"
 	"net"
 	"net/http"
@@ -21,6 +20,7 @@ import (
 	"github.com/quic-go/quic-go/internal/qtls"
 	"github.com/quic-go/quic-go/internal/utils"
 	"github.com/quic-go/quic-go/quicvarint"
+	"golang.org/x/exp/slog"
 )
 
 // allows mocking of quic.Listen and quic.ListenAddr

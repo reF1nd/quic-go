@@ -1,10 +1,9 @@
 package ackhandler
 
 import (
-	"golang.org/x/exp/slices"
-
 	"github.com/quic-go/quic-go/internal/protocol"
 	"github.com/quic-go/quic-go/internal/wire"
+	"golang.org/x/exp/slices"
 )
 
 // interval is an interval from one PacketNumber to the other
