@@ -2,7 +2,6 @@ package http3
 
 import (
 	"context"
-	"crypto/tls"
 	"errors"
 	"fmt"
 	"io"
@@ -13,6 +12,7 @@ import (
 	"sync/atomic"
 
 	"github.com/quic-go/quic-go/ech"
+	"github.com/sagernet/cloudflare-tls"
 	"golang.org/x/net/http/httpguts"
 )
 
