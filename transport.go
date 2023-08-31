@@ -192,7 +192,7 @@ func (t *Transport) dial(ctx context.Context, addr net.Addr, host string, tlsCon
 	}
 	tlsConf = tlsConf.Clone()
 	tlsConf.MinVersion = tls.VersionTLS13
-	//setTLSConfigServerName(tlsConf, addr, host)
+	// setTLSConfigServerName(tlsConf, addr, host)
 	return dial(ctx, newSendConn(t.conn, addr, packetInfo{}, utils.DefaultLogger), t.connIDGenerator, t.handlerMap, tlsConf, conf, onClose, use0RTT)
 }
 
@@ -238,7 +238,7 @@ func (t *Transport) init(allowZeroLengthConnIDs bool) error {
 			t.connIDGenerator = &protocol.DefaultConnectionIDGenerator{ConnLen: t.connIDLen}
 		}
 
-		//getMultiplexer().AddConn(t.Conn)
+		// getMultiplexer().AddConn(t.Conn)
 		go t.listen(conn)
 		go t.runSendQueue()
 	})
@@ -329,7 +329,7 @@ func (t *Transport) close(e error) {
 
 func (t *Transport) listen(conn rawConn) {
 	defer close(t.listening)
-	//defer getMultiplexer().RemoveConn(t.Conn)
+	// defer getMultiplexer().RemoveConn(t.Conn)
 
 	for {
 		p, err := conn.ReadPacket()
