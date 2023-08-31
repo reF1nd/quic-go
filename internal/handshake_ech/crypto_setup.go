@@ -3,7 +3,6 @@ package handshake
 import (
 	"bytes"
 	"context"
-	"crypto/tls"
 	"errors"
 	"fmt"
 	"net"
@@ -18,6 +17,7 @@ import (
 	"github.com/quic-go/quic-go/internal/wire"
 	"github.com/quic-go/quic-go/logging"
 	"github.com/quic-go/quic-go/quicvarint"
+	"github.com/sagernet/cloudflare-tls"
 )
 
 type quicVersionContextKey struct{}
