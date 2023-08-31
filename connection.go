@@ -453,7 +453,7 @@ var newClientConnection = func(
 	}
 	if s.config.TokenStore != nil {
 		if token := s.config.TokenStore.Pop(s.tokenStoreKey); token != nil {
-			s.packer.SetToken(token.data)
+			s.packer.SetToken(token.Data)
 		}
 	}
 	return s
@@ -1494,7 +1494,7 @@ func (s *connection) handleNewTokenFrame(frame *wire.NewTokenFrame) error {
 		}
 	}
 	if s.config.TokenStore != nil {
-		s.config.TokenStore.Put(s.tokenStoreKey, &ClientToken{data: frame.Token})
+		s.config.TokenStore.Put(s.tokenStoreKey, &ClientToken{Data: frame.Token})
 	}
 	return nil
 }
