@@ -3,13 +3,13 @@ package http3
 import (
 	"bytes"
 	"fmt"
-	"golang.org/x/exp/slog"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/quic-go/qpack"
+	"golang.org/x/exp/slog"
 )
 
 // The HTTPStreamer allows taking over a HTTP/3 stream. The interface is implemented the http.Response.Body.

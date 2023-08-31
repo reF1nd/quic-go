@@ -5,7 +5,6 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"golang.org/x/exp/slices"
 	"io"
 	"net/netip"
 	"time"
@@ -14,6 +13,7 @@ import (
 	"github.com/quic-go/quic-go/internal/qerr"
 	"github.com/quic-go/quic-go/internal/utils"
 	"github.com/quic-go/quic-go/quicvarint"
+	"golang.org/x/exp/slices"
 )
 
 // AdditionalTransportParametersClient are additional transport parameters that will be added
