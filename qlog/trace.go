@@ -3,10 +3,9 @@ package qlog
 import (
 	"time"
 
+	"github.com/francoispqt/gojay"
 	"github.com/quic-go/quic-go/internal/protocol"
 	"github.com/quic-go/quic-go/logging"
-
-	"github.com/francoispqt/gojay"
 )
 
 type topLevel struct {
