@@ -611,8 +611,16 @@ func (p *packetPacker) composeNextPacket(maxFrameSize protocol.ByteCount, onlyAc
 		if f := p.datagramQueue.Peek(); f != nil {
 			size := f.Length(v)
 			if size <= maxFrameSize-pl.length {
+				p.datagramQueue.dequeued <- nil
 				pl.frames = append(pl.frames, ackhandler.Frame{Frame: f})
 				pl.length += size
+				p.datagramQueue.Pop()
+			} else {
+				if maxFrameSize < protocol.MaxDatagramFrameSize {
+					p.datagramQueue.dequeued <- ErrMessageTooLarge(maxFrameSize - pl.length - 3)
+				} else {
+					p.datagramQueue.dequeued <- ErrMessageTooLarge(protocol.MaxDatagramFrameSize - pl.length - 3)
+				}
 				p.datagramQueue.Pop()
 			}
 		}
