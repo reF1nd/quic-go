@@ -154,6 +154,18 @@ func (c *MockSendConnRemoteAddrCall) DoAndReturn(f func() net.Addr) *MockSendCon
 	return c
 }
 
+// SetRemoteAddr mocks base method.
+func (m *MockSendConn) SetRemoteAddr(arg0 net.Addr) {
+	m.ctrl.T.Helper()
+	m.ctrl.Call(m, "SetRemoteAddr", arg0)
+}
+
+// SetRemoteAddr indicates an expected call of SetRemoteAddr.
+func (mr *MockSendConnMockRecorder) SetRemoteAddr(arg0 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetRemoteAddr", reflect.TypeOf((*MockSendConn)(nil).SetRemoteAddr), arg0)
+}
+
 // Write mocks base method.
 func (m *MockSendConn) Write(arg0 []byte, arg1 uint16, arg2 protocol.ECN) error {
 	m.ctrl.T.Helper()
