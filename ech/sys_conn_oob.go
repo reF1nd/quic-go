@@ -8,8 +8,6 @@ import (
 	"log"
 	"net"
 	"net/netip"
-	"os"
-	"strconv"
 	"sync"
 	"syscall"
 	"time"
@@ -59,8 +57,9 @@ func inspectWriteBuffer(c syscall.RawConn) (int, error) {
 }
 
 func isECNDisabled() bool {
-	disabled, err := strconv.ParseBool(os.Getenv("QUIC_GO_DISABLE_ECN"))
-	return err == nil && disabled
+	/*disabled, err := strconv.ParseBool(os.Getenv("QUIC_GO_DISABLE_ECN"))
+	return err == nil && disabled*/
+	return true
 }
 
 type oobConn struct {
