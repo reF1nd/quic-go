@@ -2369,7 +2369,7 @@ func (s *connection) SendDatagram(p []byte) error {
 	maxDataLen := f.MaxDataLen(s.peerParams.MaxDatagramFrameSize, s.version)
 	if protocol.ByteCount(len(p)) > maxDataLen {
 		return &DatagramTooLargeError{
-			MaxDataLen: int64(maxDataLen),
+			PeerMaxDatagramFrameSize: int64(maxDataLen),
 		}
 	}
 	f.Data = make([]byte, len(p))
