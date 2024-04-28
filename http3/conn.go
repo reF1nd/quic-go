@@ -3,7 +3,6 @@ package http3
 import (
 	"context"
 	"fmt"
-	"log/slog"
 	"net"
 	"sync"
 	"sync/atomic"
@@ -12,6 +11,7 @@ import (
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/internal/protocol"
 	"github.com/quic-go/quic-go/quicvarint"
+	"golang.org/x/exp/slog"
 )
 
 // Connection is an HTTP/3 connection.
