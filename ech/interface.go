@@ -3,9 +3,9 @@ package quic
 import (
 	"errors"
 
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/internal/handshake_ech"
-	"github.com/quic-go/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go"
+	"github.com/sagernet/quic-go/internal/handshake_ech"
+	"github.com/sagernet/quic-go/internal/protocol"
 )
 
 // The StreamID is the ID of a QUIC stream.
