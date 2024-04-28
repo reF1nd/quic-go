@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"log/slog"
 	"net"
 	"net/http"
 	"strings"
@@ -15,6 +14,7 @@ import (
 
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/internal/protocol"
+	"golang.org/x/exp/slog"
 	"golang.org/x/net/http/httpguts"
 )
 
