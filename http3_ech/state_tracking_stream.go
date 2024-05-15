@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/quic-go/quic-go/ech"
+	"github.com/sagernet/quic-go/ech"
 )
 
 type streamState uint8
