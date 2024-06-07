@@ -2450,6 +2450,10 @@ func (s *connection) NextConnection() Connection {
 	return s
 }
 
+func (s *connection) SetRemoteAddr(addr net.Addr) {
+	s.conn.SetRemoteAddr(addr)
+}
+
 // estimateMaxPayloadSize estimates the maximum payload size for short header packets.
 // It is not very sophisticated: it just subtracts the size of header (assuming the maximum
 // connection ID length), and the size of the encryption tag.
