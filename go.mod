@@ -1,10 +1,11 @@
 module github.com/quic-go/quic-go
 
-go 1.21
+go 1.20
 
 require (
 	github.com/francoispqt/gojay v1.2.13
 	github.com/quic-go/qpack v0.4.0
+	github.com/quic-go/qtls-go1-20 v0.4.1
 	golang.org/x/crypto v0.24.0
 	golang.org/x/exp v0.0.0-20240613232115-7f521ea00fb8
 	golang.org/x/net v0.26.0
