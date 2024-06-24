@@ -9,8 +9,8 @@ import (
 	"strconv"
 
 	"github.com/quic-go/qpack"
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/internal/protocol"
+	"github.com/sagernet/quic-go"
+	"github.com/sagernet/quic-go/internal/protocol"
 )
 
 // A Stream is an HTTP/3 request stream.
