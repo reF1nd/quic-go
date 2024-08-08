@@ -15,11 +15,10 @@ import (
 	"sync"
 	"time"
 
+	"github.com/quic-go/qpack"
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/internal/protocol"
 	"github.com/quic-go/quic-go/quicvarint"
-
-	"github.com/quic-go/qpack"
 )
 
 // allows mocking of quic.Listen and quic.ListenAddr
