@@ -7,10 +7,9 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/quic-go/qpack"
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/internal/protocol"
-
-	"github.com/quic-go/qpack"
 )
 
 // A Stream is an HTTP/3 request stream.
