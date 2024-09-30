@@ -9,7 +9,7 @@ const DesiredReceiveBufferSize = (1 << 20) * 8 // 8 MB
 const DesiredSendBufferSize = (1 << 20) * 8 // 8 MB
 
 // InitialPacketSize is the initial (before Path MTU discovery) maximum packet size used.
-const InitialPacketSize = 1280
+const InitialPacketSize = 1272
 
 // MaxCongestionWindowPackets is the maximum congestion window in packet.
 const MaxCongestionWindowPackets = 20000
