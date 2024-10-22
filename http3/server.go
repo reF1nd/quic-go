@@ -286,7 +286,7 @@ func (s *Server) init() {
 }
 
 func (s *Server) decreaseConnCount() {
-	if s.connCount.Add(-1) == 0 {
+	if s.connCount.Add(-1) == 0 && s.graceCtx.Err() != nil {
 		close(s.connHandlingDone)
 	}
 }
@@ -763,7 +763,7 @@ func (s *Server) Shutdown(ctx context.Context) error {
 	s.mutex.Unlock()
 
 	if s.connCount.Load() == 0 {
-		return nil
+		return s.Close()
 	}
 	select {
 	case <-s.connHandlingDone: // all connections were closed
