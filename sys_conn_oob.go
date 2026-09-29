@@ -379,6 +379,9 @@ func (c *oobConn) ReadPacket() (receivedPacket, error) {
 
 		n, err := c.batchConn.ReadBatch(c.messages, 0)
 		if n == 0 || err != nil {
+			// A recoverable socket error must leave the batch empty. Otherwise
+			// the next ReadPacket would consume stale message lengths and data.
+			c.messages = c.messages[:0]
 			return receivedPacket{}, err
 		}
 		c.messages = c.messages[:n]
