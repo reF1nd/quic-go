@@ -17,7 +17,7 @@ require (
 
 require (
 	github.com/jordanlewis/gcassert v0.0.0-20250430164644-389ef753e22e // indirect
-	github.com/metacubex/utls v1.8.7
+	github.com/metacubex/utls v1.9.0-alpha.1
 	github.com/stretchr/testify v1.11.1 // indirect
 	go.uber.org/mock v0.5.2 // indirect
 	golang.org/x/mod v0.37.0 // indirect
